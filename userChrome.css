@@ -13,6 +13,10 @@
     order: 2;
 }
 
+#tab-notification-deck {
+    order: 3;
+}
+
 .titlebar-buttonbox-container {
     display: none;
 }
