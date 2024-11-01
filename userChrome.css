@@ -1,16 +1,66 @@
+/**
+ * "Title bar"
+ */
+
+#PersonalToolbar {
+    order: 1;
+    padding-inline: 2px !important;
+    padding-bottom: 2px !important;
+    margin-top: -2px;
+}
+
+#TabsToolbar {
+    order: 2;
+}
+
+.titlebar-buttonbox-container {
+    display: none;
+}
+
+/* Remove extreme spacing at either end of tab bar */
+.titlebar-spacer[type="pre-tabs"],
+.titlebar-spacer[type="post-tabs"] {
+    width: 0 !important;
+}
+
+/* Match other title bar buttons to tab style background on hover */
+toolbar .toolbarbutton-1 {
+    &:not([disabled]) {
+        &:hover > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
+            background-color: var(--tab-hover-background-color) !important;
+        }
+    }
+}
+
+/**
+ * Tabs
+ */
+
+:root {
+    --tab-block-margin: 0 !important;
+    --tab-border-radius: 0 !important;
+    --tab-outline: none !important;
+    --tab-overflow-clip-margin: 0 !important;
+}
+
 /* Match Chrome font size for tab titles, and vertically center the label */
 .tab-label {
     font-size: 13px !important;
     margin-block: 0 0 !important;
 }
 
-/* Remove extreme spacing at either end of tab bar */
-.titlebar-spacer[type="pre-tabs"] {
-    width: 20px !important;
+/* Position close button equally inside the tab */
+.tab-close-button {
+    margin-inline-end: -3px !important;
 }
 
-.titlebar-spacer[type="post-tabs"] {
-    width: 2px !important;
+/* Only show close button on hover */
+.tab-close-button {
+    display: none !important;
+}
+
+.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+    display: block !important;
 }
 
 /* Remove space between pinned tabs and regular tabs */
@@ -18,19 +68,38 @@
     margin-inline-start: 0 !important;
 }
 
-/* Remove ugly shadow from tabs */
-#TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon, .tab-background:is([selected], [multiselected]) {
+/* Remove shadow from tabs */
+#TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon,
+.tab-background:is([selected], [multiselected]) {
     box-shadow: none !important;
 }
 
 /* Tone down border before tabs */
-:root:not([privatebrowsingmode], [firefoxviewhidden]) :is(toolbarbutton, toolbarpaletteitem) + #tabbrowser-tabs, :root[privatebrowsingmode]:not([firefoxviewhidden]) :is(toolbarbutton:not(#firefox-view-button), toolbarpaletteitem:not(#wrapper-firefox-view-button)) + #tabbrowser-tabs {
+:root:not([privatebrowsingmode], [firefoxviewhidden]) :is(toolbarbutton, toolbarpaletteitem) + #tabbrowser-tabs,
+:root[privatebrowsingmode]:not([firefoxviewhidden]) :is(toolbarbutton:not(#firefox-view-button),
+toolbarpaletteitem:not(#wrapper-firefox-view-button)) + #tabbrowser-tabs {
     border-inline-start: 1px solid color-mix(in srgb, currentColor 15%, transparent) !important;
+}
+
+/* Remove padding around new tab button */
+#tabs-newtab-button {
+    padding: 0 !important;
 }
 
 /* Remove space below tabs from border */
 #nav-bar {
     border-top: none !important;
+}
+
+/**
+ * Main toolbar
+ */
+
+:root {
+    --urlbar-margin-inline: 2px !important;
+    --toolbar-start-end-padding: 4px !important;
+    --toolbarbutton-outer-padding: 1px !important;
+    --toolbar-bgcolor: var(--tab-selected-bgcolor) !important;
 }
 
 /* Remove border at the bottom of browser nav toolbox */
