@@ -29,11 +29,20 @@
 
 /* Match other title bar buttons to tab style background on hover */
 toolbar .toolbarbutton-1 {
-    &:not([disabled]) {
+    &:not([disabled]):not([open]) {
         &:hover > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
             background-color: var(--tab-hover-background-color) !important;
         }
     }
+
+    & > :is(.toolbarbutton-icon) {
+        outline-color: transparent !important;
+    }
+}
+
+/* Remove space between toolbar icon buttons */
+#TabsToolbar .toolbarbutton-1 {
+    padding: 0 !important;
 }
 
 /**
