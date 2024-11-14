@@ -29,20 +29,11 @@
 
 /* Match other title bar buttons to tab style background on hover */
 toolbar .toolbarbutton-1 {
-    &:not([disabled]):not([open]) {
+    &:not([disabled]) {
         &:hover > :is(.toolbarbutton-icon, .toolbarbutton-text, .toolbarbutton-badge-stack) {
             background-color: var(--tab-hover-background-color) !important;
         }
     }
-
-    & > :is(.toolbarbutton-icon) {
-        outline-color: transparent !important;
-    }
-}
-
-/* Remove space between toolbar icon buttons */
-#TabsToolbar .toolbarbutton-1 {
-    padding: 0 !important;
 }
 
 /**
@@ -113,7 +104,6 @@ toolbarpaletteitem:not(#wrapper-firefox-view-button)) + #tabbrowser-tabs {
     --urlbar-margin-inline: 2px !important;
     --toolbar-start-end-padding: 4px !important;
     --toolbarbutton-outer-padding: 1px !important;
-    --toolbar-bgcolor: var(--tab-selected-bgcolor) !important;
 }
 
 /* Remove border at the bottom of browser nav toolbox */
